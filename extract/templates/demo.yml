@@ -1,0 +1,30 @@
+issuer: [Company Name]
+keywords:
+  - INVOICE
+fields:
+  amount: TOTAL\s+(\d+)
+lines:
+    start: DESCRIPTION\s+QTY\s+UNIT PRICE\s+AMOUNT
+    end: Thank you for your business!
+    line: (.*)(\d*)(\d+\.\d+)(\d+\.\d+)
+tables:
+  - start: INVOICE \#\s+DATE
+    end: CUSTOMER ID\s+TERMS
+    body: (?P<invoice_number>\w+)\s+(?P<date>(?:0[1-9]|[12][0-9]|3[01])\/(?:0[1-9]|1[012])\/(?:19\d{2}|20\d{2}))
+  - start: CUSTOMER ID\s+TERMS
+    end: BILL TO\s+SHIP TO
+    body: (?P<customer_id>\w+)\s+(?P<term>(?:\w+ ?)*)
+  - start: BILL TO\s+SHIP TO
+    end: DESCRIPTION\s+QTY\s+UNIT PRICE\s+AMOUNT
+    body: (?P<bill_to>[\S ]+),\s+(?P<ship_to>[\S ]+)
+options:
+  remove_whitespace: false
+  remove_accents: false
+  lowercase: false
+  currency: "USD"
+  languages: 
+    - en
+  decimal_separator: "."
+  replace:
+    - ['/hr', ' per hour']
+

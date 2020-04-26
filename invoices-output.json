@@ -1,0 +1,16 @@
+[
+    {
+        "amount": 525.0,
+        "bill_to": "[City, ST ZIP]                                                      [City",
+        "currency": "USD",
+        "customer_id": "564",
+        "date": "2019-05-24",
+        "desc": "Invoice from ['Company Name']",
+        "invoice_number": "2034",
+        "issuer": [
+            "Company Name"
+        ],
+        "ship_to": "ST ZIP]",
+        "term": "Net 30 Days"
+    }
+]
