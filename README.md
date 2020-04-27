@@ -1,6 +1,8 @@
 # INEX
 invoice data extraction from various file formats.
+
 Run as-
-    python inex.py <path_to_file/folder>
+<pre>    python inex.py [path_to_file|folder] </pre>
+
 Example-
-    python inex.py example/
+<pre>    python inex.py example/ </pre>
