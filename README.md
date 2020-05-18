@@ -18,4 +18,4 @@ Run as-
 <pre>    python inex.py [path_to_file|folder] </pre>
 
 Example-
-<pre>    python inex.py example/ </pre>
+<pre>    python inex.py ./example/* </pre>
