@@ -127,12 +127,13 @@ def main(args=None):
     # Load templates from external folder if set.
     if args.template_folder:
         templates += read_templates(os.path.abspath(args.template_folder))
-
+    
     # Extracting data
     output = []
     for f in args.input_files:
         input_module = select_input_module(f.name)
         res = extract_data(f.name, templates=templates, input_module=input_module)
+        res["file_name"] = f.name
         if res:
             logger.info(res)
             output.append(res)
